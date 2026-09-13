@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap">
 <style>
   :root{
+    color-scheme:light;
     --ink:#2E2019; --ink-soft:#5E5046;
     --ground:#FBF8F4; --surface:#FFFFFF; --surface-2:#F5EFE5;
     --line:#E3DACE; --line-strong:#CBBBA6;
@@ -20,30 +21,6 @@
     --font-display:"Cormorant Garamond", Georgia, serif;
     --font-body:"Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --ink:#F4EEE4; --ink-soft:#C6B8AA; --ground:#1C1712; --surface:#26201A; --surface-2:#2F281F;
-      --line:#3A3128; --line-strong:#4C4235;
-      --olive:#9CC46A; --olive-700:#B6D98A; --olive-ink:#DFEFC6; --on-primary:#16130F;
-      --leaf:#8FB860; --petal:#F0A8CE; --wine:#E88AA0; --nude:#5A4E40;
-      --tint-olive:#2A3320; --tint-petal:#3A2430; --tint-wine:#3A2028; --tint-nude:#2F281F;
-      --success:#9CC46A; --danger:#E88476; --warning:#D9A63A; --focus:#9CC46A;
-      --shadow-sm:0 1px 2px rgba(0,0,0,.3);
-      --shadow-md:0 12px 32px -14px rgba(0,0,0,.6), 0 2px 6px rgba(0,0,0,.35);
-      --shadow-lg:0 30px 60px -24px rgba(0,0,0,.7), 0 8px 20px rgba(0,0,0,.4);
-    }
-  }
-  :root[data-theme="dark"]{
-    --ink:#F4EEE4; --ink-soft:#C6B8AA; --ground:#1C1712; --surface:#26201A; --surface-2:#2F281F;
-    --line:#3A3128; --line-strong:#4C4235;
-    --olive:#9CC46A; --olive-700:#B6D98A; --olive-ink:#DFEFC6; --on-primary:#16130F;
-    --leaf:#8FB860; --petal:#F0A8CE; --wine:#E88AA0; --nude:#5A4E40;
-    --tint-olive:#2A3320; --tint-petal:#3A2430; --tint-wine:#3A2028; --tint-nude:#2F281F;
-    --success:#9CC46A; --danger:#E88476; --warning:#D9A63A; --focus:#9CC46A;
-    --shadow-sm:0 1px 2px rgba(0,0,0,.3);
-    --shadow-md:0 12px 32px -14px rgba(0,0,0,.6), 0 2px 6px rgba(0,0,0,.35);
-    --shadow-lg:0 30px 60px -24px rgba(0,0,0,.7), 0 8px 20px rgba(0,0,0,.4);
-  }
 
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -53,6 +30,7 @@
   h1,h2,h3,h4{font-family:var(--font-display);font-weight:500;line-height:1.12;margin:0;color:var(--ink);text-wrap:balance}
   p{margin:0}
   a{color:var(--olive)}
+  img{max-width:100%}
   .eyebrow{font-family:var(--font-body);font-weight:500;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
   .muted{color:var(--ink-soft)}
 
@@ -64,8 +42,6 @@
   nav.jump a{color:var(--ink-soft);text-decoration:none;white-space:nowrap}
   nav.jump a:hover{color:var(--olive)}
   @media (max-width:900px){nav.jump{display:none}}
-  .toggle{border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);width:38px;height:38px;border-radius:var(--r-pill);cursor:pointer;display:grid;place-items:center;flex:none}
-  .toggle:hover{border-color:var(--olive)}
 
   .petal-svg{display:inline-block}
   section{padding:64px 0;border-top:1px solid var(--line)}
@@ -97,10 +73,10 @@
   .browser .bar .url{margin-left:12px;font-family:var(--font-body);font-size:.74rem;color:var(--ink-soft);background:var(--ground);border:1px solid var(--line);border-radius:var(--r-pill);padding:4px 14px}
   .site{background:var(--surface)}
   .s-promo{background:var(--olive);color:var(--on-primary);text-align:center;font-family:var(--font-body);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;padding:9px 12px}
-  .s-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 26px;flex-wrap:wrap}
-  .s-search{font-family:var(--font-body);font-size:.82rem;color:var(--ink-soft);display:flex;align-items:center;gap:7px}
-  .s-mark{font-family:var(--font-display);font-weight:600;font-size:1.7rem;display:flex;align-items:baseline;color:var(--ink)}
-  .s-util{font-family:var(--font-body);font-size:.8rem;color:var(--ink-soft);display:flex;gap:16px;align-items:center}
+  .s-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 26px;flex-wrap:wrap}
+  .s-search{font-family:var(--font-body);font-size:.82rem;color:var(--ink-soft);display:flex;align-items:center;gap:7px;flex:1;min-width:120px}
+  .s-logo{height:80px;width:auto;display:block}
+  .s-util{font-family:var(--font-body);font-size:.8rem;color:var(--ink-soft);display:flex;gap:16px;align-items:center;flex:1;justify-content:flex-end;min-width:120px}
   .s-util .cart{display:inline-flex;align-items:center;gap:6px}
   .s-nav{display:flex;justify-content:center;gap:30px;padding:12px 26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-family:var(--font-body);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;flex-wrap:wrap}
   .s-nav span{color:var(--ink)}
@@ -112,10 +88,9 @@
   .s-hero h3 em{font-style:italic;color:var(--olive);display:block}
   .s-hero .p{font-size:1.02rem;color:var(--ink-soft);margin:20px 0 26px;max-width:34ch}
   .s-hero .cta-row{display:flex;gap:12px;flex-wrap:wrap}
-  .s-hero .art{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 70% 20%,#f3dfe9,transparent 60%),linear-gradient(150deg,#e6ecd8,#efe6d6)}
-  :root[data-theme="dark"] .s-hero .art,:root:not([data-theme="light"]) .s-hero .art{filter:saturate(.7) brightness(.72)}
-  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .s-hero .art{filter:saturate(.7) brightness(.72)}}
-  .s-hero .art svg{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:78%;height:auto}
+  .s-hero .art{position:relative;overflow:hidden;display:grid;place-items:center;background:radial-gradient(120% 90% at 70% 20%,#f3dfe9,transparent 60%),linear-gradient(150deg,#e6ecd8,#efe6d6)}
+  .ph-note{display:flex;flex-direction:column;align-items:center;gap:10px;color:#7c6a5b;font-family:var(--font-body);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding:20px}
+  .ph-note svg{opacity:.55}
   .btn{font-family:var(--font-body);font-weight:500;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;padding:12px 22px;border-radius:var(--r-sm);border:1px solid transparent;cursor:pointer;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
   .btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
   .btn-primary{background:var(--olive);color:var(--on-primary)}
@@ -148,8 +123,7 @@
   .rail::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:8px}
   .prod{flex:0 0 240px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-sm)}
   .prod .ph{aspect-ratio:1/1;position:relative;display:grid;place-items:center;background:linear-gradient(135deg,#dfe8cf,#f3e2ec 60%,#efe6d6)}
-  :root[data-theme="dark"] .prod .ph,:root:not([data-theme="light"]) .prod .ph{filter:saturate(.7) brightness(.72)}
-  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .prod .ph{filter:saturate(.7) brightness(.72)}}
+  .prod .ph .mini{font-family:var(--font-body);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#8a7868}
   .prod .tag{position:absolute;top:10px;left:10px;font-family:var(--font-body);font-size:.68rem;font-weight:600;padding:4px 9px;border-radius:var(--r-pill);background:var(--tint-wine);color:var(--wine)}
   .prod .in{padding:14px 15px 16px}
   .prod .cat-l{font-family:var(--font-body);font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--olive);font-weight:600}
@@ -157,16 +131,15 @@
   .prod .pr{font-family:var(--font-body);font-weight:600;font-size:1.05rem;color:var(--ink);font-variant-numeric:tabular-nums}
   .prod .pc{font-size:.74rem;color:var(--ink-soft);margin-top:2px}
   .s-foot{background:var(--olive-700);color:#efeee6;padding:34px 26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--font-body);font-size:.82rem}
-  :root[data-theme="dark"] .s-foot,:root:not([data-theme="light"]) .s-foot{background:#20180f}
-  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .s-foot{background:#20180f}}
   .s-foot .fm{font-family:var(--font-display);font-size:1.5rem;color:#fff;display:flex;align-items:baseline;margin-bottom:8px}
   .s-foot .cols{display:flex;gap:44px;flex-wrap:wrap}
   .s-foot .cols b{display:block;color:#fff;font-weight:600;margin-bottom:8px;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase}
   .s-foot .cols span{display:block;color:rgba(255,255,255,.72);padding:2px 0}
   @media (max-width:760px){
-    .s-hero{grid-template-columns:1fr}.s-hero .art{min-height:240px;order:-1}
+    .s-hero{grid-template-columns:1fr}.s-hero .art{min-height:220px;order:-1}
     .s-trust{grid-template-columns:repeat(2,1fr)}.s-trust .ti:nth-child(3){border-left:none}
     .cats{grid-template-columns:repeat(2,1fr)}
+    .s-head{justify-content:center}.s-search,.s-util{flex:none}
   }
   @media (max-width:480px){.cats{grid-template-columns:1fr}.s-trust{grid-template-columns:1fr}.s-trust .ti{border-left:none}}
 
@@ -174,10 +147,16 @@
   @media (max-width:720px){.id-grid{grid-template-columns:1fr}}
   .id-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:24px;box-shadow:var(--shadow-sm)}
   .id-card h4{font-size:1.3rem;margin-bottom:14px}
+  .id-logo{display:flex;align-items:center;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 24px;box-shadow:var(--shadow-sm);margin-bottom:16px}
+  .id-logo img{height:120px;width:auto}
+  .id-logo .cap{font-size:.9rem;color:var(--ink-soft)}
+  .id-logo .cap b{color:var(--ink)}
   .pal{display:flex;gap:8px;flex-wrap:wrap}
   .pal .sw{width:52px;height:52px;border-radius:8px;border:1px solid var(--line);display:flex;align-items:flex-end;justify-content:center;font-family:var(--font-body);font-size:.55rem;color:rgba(255,255,255,.9);padding-bottom:3px}
   .type-demo .d{font-family:var(--font-display);font-size:2.4rem;color:var(--ink);line-height:1}
   .type-demo .b{font-family:var(--font-body);font-size:.95rem;color:var(--ink-soft);margin-top:8px}
+  .note-vec{margin-top:16px;background:var(--tint-nude);border:1px solid var(--line);border-left:3px solid var(--wine);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:14px 18px;font-size:.9rem}
+  .note-vec b{color:var(--ink)}
 
   .tree{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
   .branch{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:18px}
@@ -211,13 +190,20 @@
   .phase ul{margin:0;padding-left:18px}
   .phase li{font-size:.87rem;color:var(--ink-soft);padding:2px 0}
 
+  .urgent{display:flex;align-items:center;gap:12px;background:var(--tint-wine);border:1px solid color-mix(in srgb,var(--wine) 30%,transparent);border-radius:var(--r-md);padding:16px 20px;margin-bottom:22px}
+  .urgent .flag{font-family:var(--font-body);font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--wine);padding:5px 11px;border-radius:var(--r-pill);flex:none}
+  .urgent p{font-size:.92rem;color:var(--ink)}
   .who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
   .who{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--leaf);border-radius:0 0 var(--r-md) var(--r-md);padding:20px}
   .who.us{border-top-color:var(--wine)}
-  .who .role{font-family:var(--font-body);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:10px}
-  .who.us .role{color:var(--wine)}
+  .who.hot{border-top-color:var(--wine);box-shadow:var(--shadow-md)}
+  .who .role{font-family:var(--font-body);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .who.us .role,.who.hot .role{color:var(--wine)}
+  .who .role .mini-flag{font-size:.58rem;background:var(--wine);color:#fff;padding:2px 7px;border-radius:var(--r-pill);letter-spacing:.08em}
   .who ul{margin:0;padding-left:18px}
   .who li{font-size:.87rem;color:var(--ink-soft);padding:2px 0}
+  .who li b{color:var(--ink);font-weight:600}
+  .who .ft{font-size:.72rem;color:var(--ink-soft);margin-top:10px;font-style:italic}
 
   .approve{background:linear-gradient(135deg,var(--tint-olive),var(--surface));border:1px solid color-mix(in srgb,var(--olive) 22%,transparent);border-radius:var(--r-lg);padding:40px 32px;text-align:center}
   .approve h2{font-size:clamp(1.9rem,4vw,2.6rem)}
@@ -227,7 +213,7 @@
   .approve .opt.yes{background:var(--olive);color:var(--on-primary);border-color:var(--olive);font-weight:500}
 
   footer.doc{padding:44px 0 64px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.82rem}
-  footer.doc .fmark{font-family:var(--font-display);font-size:1.5rem;color:var(--ink);display:flex;align-items:baseline;margin-bottom:8px}
+  footer.doc img{height:64px;width:auto;margin-bottom:12px}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -243,11 +229,9 @@
       <a href="#arquitetura">Estrutura</a>
       <a href="#coroas">Coroas</a>
       <a href="#fases">Fases</a>
+      <a href="#precisamos">O que precisamos</a>
       <a href="#aprovar">Aprovar</a>
     </nav>
-    <button class="toggle" id="themeBtn" aria-label="Alternar tema claro e escuro" title="Tema claro e escuro">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.8A8 8 0 1 1 11.2 3a6 6 0 0 0 9.8 9.8z"/></svg>
-    </button>
   </div>
 </header>
 
@@ -278,7 +262,7 @@
 
   <section id="home">
     <div class="sec-head"><h2>A página inicial</h2></div>
-    <p class="sec-intro">Uma amostra de como a home fica no novo visual. Redimensione a janela para ver como ela se adapta ao celular.</p>
+    <p class="sec-intro">Uma amostra de como a home fica no novo visual, já com o logo da marca. Redimensione a janela para ver como ela se adapta ao celular.</p>
 
     <div class="browser">
       <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">giullias.com.br</span></div>
@@ -286,7 +270,7 @@
         <div class="s-promo">Frete grátis para São Paulo em compras acima de R$ 250</div>
         <div class="s-head">
           <span class="s-search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg> Buscar</span>
-          <span class="s-mark">Giullia<svg class="petal-svg" style="width:.4em;height:.58em" viewBox="0 0 20 30" aria-hidden="true"><use href="#petal-shape" fill="var(--petal)"/></svg>s</span>
+          <img class="s-logo" src="logo-giullias.png" alt="Giullia's Floricultura">
           <span class="s-util"><span>Entrar ou criar conta</span><span class="cart"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg> Carrinho (0)</span></span>
         </div>
         <div class="s-nav"><span class="act">Ocasiões</span><span>Flores</span><span>Garden</span><span>Personalizados</span><span>Nossas Lojas</span></div>
@@ -301,31 +285,11 @@
               <a class="btn btn-secondary">Ver coleção</a>
             </div>
           </div>
-          <div class="art" aria-hidden="true">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <g stroke="#4a5b39" stroke-width="2.4" fill="none" stroke-linecap="round">
-                <path d="M100 200 C96 150 92 120 100 96"/>
-                <path d="M100 150 C80 138 70 120 66 104"/>
-                <path d="M100 150 C120 138 130 120 134 104"/>
-                <path d="M100 168 C86 160 78 150 74 138"/>
-                <path d="M100 168 C114 160 122 150 126 138"/>
-              </g>
-              <g stroke="#5c7c3e" stroke-width="2" fill="#7ea44e">
-                <ellipse cx="66" cy="100" rx="9" ry="17" transform="rotate(-32 66 100)"/>
-                <ellipse cx="134" cy="100" rx="9" ry="17" transform="rotate(32 134 100)"/>
-                <ellipse cx="74" cy="134" rx="7" ry="13" transform="rotate(-24 74 134)"/>
-                <ellipse cx="126" cy="134" rx="7" ry="13" transform="rotate(24 126 134)"/>
-              </g>
-              <g>
-                <g transform="translate(100 78)"><circle r="20" fill="#e574ac"/><circle r="16" fill="#ef93bf"/><circle r="7" fill="#fbe0ee"/></g>
-                <g transform="translate(72 92)"><circle r="15" fill="#f0a8ce"/><circle r="6" fill="#fff2f8"/></g>
-                <g transform="translate(128 92)"><circle r="15" fill="#f0a8ce"/><circle r="6" fill="#fff2f8"/></g>
-                <g transform="translate(84 66)"><circle r="12" fill="#faf3e6"/><circle r="5" fill="#e6c98f"/></g>
-                <g transform="translate(118 66)"><circle r="12" fill="#faf3e6"/><circle r="5" fill="#e6c98f"/></g>
-                <g transform="translate(100 108)"><circle r="13" fill="#f6dfe9"/><circle r="5" fill="#d98cb4"/></g>
-              </g>
-              <path d="M78 200 C90 176 110 176 122 200 Z" fill="#c9a98a"/>
-            </svg>
+          <div class="art">
+            <div class="ph-note">
+              <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="M4 18l5-5 4 4 3-3 4 4"/></svg>
+              <span>Espaço para foto do produto</span>
+            </div>
           </div>
         </div>
 
@@ -349,11 +313,11 @@
         <div class="s-block s-best">
           <div class="center"><h3>Mais vendidos</h3></div>
           <div class="rail">
-            <div class="prod"><div class="ph"><span class="tag">20% off</span></div><div class="in"><div class="cat-l">Buquês</div><div class="nm">Buquê Encanto</div><div class="pr">R$ 189,90</div><div class="pc">3x de R$ 63,30 sem juros</div></div></div>
-            <div class="prod"><div class="ph"></div><div class="in"><div class="cat-l">Arranjos</div><div class="nm">Arranjo Serena</div><div class="pr">R$ 249,00</div><div class="pc">4x de R$ 62,25 sem juros</div></div></div>
-            <div class="prod"><div class="ph"></div><div class="in"><div class="cat-l">Garden</div><div class="nm">Orquídea Phalaenopsis</div><div class="pr">R$ 159,90</div><div class="pc">3x de R$ 53,30 sem juros</div></div></div>
-            <div class="prod"><div class="ph"><span class="tag">Novo</span></div><div class="in"><div class="cat-l">Cestas</div><div class="nm">Café da Manhã Afeto</div><div class="pr">R$ 219,00</div><div class="pc">4x de R$ 54,75 sem juros</div></div></div>
-            <div class="prod"><div class="ph"></div><div class="in"><div class="cat-l">Ramalhetes</div><div class="nm">Ramalhete Primavera</div><div class="pr">R$ 129,90</div><div class="pc">2x de R$ 64,95 sem juros</div></div></div>
+            <div class="prod"><div class="ph"><span class="tag">20% off</span><span class="mini">foto</span></div><div class="in"><div class="cat-l">Buquês</div><div class="nm">Buquê Encanto</div><div class="pr">R$ 189,90</div><div class="pc">3x de R$ 63,30 sem juros</div></div></div>
+            <div class="prod"><div class="ph"><span class="mini">foto</span></div><div class="in"><div class="cat-l">Arranjos</div><div class="nm">Arranjo Serena</div><div class="pr">R$ 249,00</div><div class="pc">4x de R$ 62,25 sem juros</div></div></div>
+            <div class="prod"><div class="ph"><span class="mini">foto</span></div><div class="in"><div class="cat-l">Garden</div><div class="nm">Orquídea Phalaenopsis</div><div class="pr">R$ 159,90</div><div class="pc">3x de R$ 53,30 sem juros</div></div></div>
+            <div class="prod"><div class="ph"><span class="tag">Novo</span><span class="mini">foto</span></div><div class="in"><div class="cat-l">Cestas</div><div class="nm">Café da Manhã Afeto</div><div class="pr">R$ 219,00</div><div class="pc">4x de R$ 54,75 sem juros</div></div></div>
+            <div class="prod"><div class="ph"><span class="mini">foto</span></div><div class="in"><div class="cat-l">Ramalhetes</div><div class="nm">Ramalhete Primavera</div><div class="pr">R$ 129,90</div><div class="pc">2x de R$ 64,95 sem juros</div></div></div>
           </div>
         </div>
 
@@ -374,7 +338,11 @@
 
   <section id="identidade">
     <div class="sec-head"><h2>Identidade</h2></div>
-    <p class="sec-intro">O rebranding traduzido para a web. Cada cor tem um papel definido e um bom contraste.</p>
+    <p class="sec-intro">O rebranding traduzido para a web. O logo abaixo é a arte do deck do marketing; cada cor tem um papel definido e um bom contraste.</p>
+    <div class="id-logo">
+      <img src="logo-giullias.png" alt="Logo da Giullia's Floricultura">
+      <div class="cap"><b>Logo oficial da marca.</b><br>É este o logo, não aquele desenho de flor que apareceu antes como exemplo.</div>
+    </div>
     <div class="id-grid">
       <div class="id-card">
         <h4>Paleta</h4>
@@ -397,6 +365,7 @@
         </div>
       </div>
     </div>
+    <div class="note-vec"><b>Para dar sequência:</b> precisamos do <b>vetor oficial do logo (SVG)</b>, direto do Marketing. O logo mostrado aqui foi extraído do PDF e serve como referência, mas para produção usaremos o arquivo em vetor.</div>
   </section>
 
   <section id="arquitetura">
@@ -459,12 +428,25 @@
     </div>
   </section>
 
-  <section id="decisoes">
+  <section id="precisamos">
     <div class="sec-head"><h2>O que precisamos de vocês</h2></div>
     <p class="sec-intro">Para seguir, dependemos de algumas definições. A parte de tecnologia e plataforma fica com a nossa equipe.</p>
+    <div class="urgent">
+      <span class="flag">Urgente</span>
+      <p>Precisamos do <b>aval</b> e dos <b>arquivos de imagem abaixo</b> o quanto antes, para dar sequência sem travar o cronograma.</p>
+    </div>
     <div class="who-grid">
+      <div class="who hot"><div class="role">Marketing <span class="mini-flag">prioridade</span></div>
+        <ul>
+          <li><b>Logo oficial em vetor:</b> arquivo <b>SVG</b> (e <b>PNG</b> com fundo transparente, alta resolução), nas versões principal, reduzida e isotipo</li>
+          <li><b>Fonte da marca:</b> arquivos <b>OTF ou TTF</b>, se existirem</li>
+          <li><b>Fotos de produto:</b> <b>JPG ou PNG</b> em alta resolução, fundo claro e neutro</li>
+          <li><b>Banners e imagens</b> de campanha</li>
+          <li>Textos e categorias finais</li>
+        </ul>
+        <div class="ft">Enviar tudo para o Denis (TI Ossel).</div>
+      </div>
       <div class="who"><div class="role">Diretoria</div><ul><li>Aval geral neste documento e nas fases</li><li>Sinal verde para o canal de Coroas</li></ul></div>
-      <div class="who"><div class="role">Marketing</div><ul><li>Logo final em vetor</li><li>Arquivos da fonte, se houver</li><li>Fotos de produto e banners</li><li>Textos e categorias finais</li></ul></div>
       <div class="who"><div class="role">Operação</div><ul><li>Tabela de frete e dimensões dos produtos</li><li>Regras de entrega e agendamento</li><li>Parceiros para a entrega das coroas</li></ul></div>
       <div class="who us"><div class="role">Com a nossa equipe (TI)</div><ul><li>Escolha da plataforma e migração</li><li>Integração com o Protheus</li><li>Pagamentos e frete no site</li><li>Desenvolvimento do canal de Coroas</li></ul></div>
     </div>
@@ -474,7 +456,7 @@
     <div class="approve">
       <div class="eyebrow" style="justify-content:center;margin-bottom:14px">Decisão</div>
       <h2>Podemos seguir?</h2>
-      <p>Se estiver alinhado, respondam este e-mail com o aval e a gente já começa o desenvolvimento da Fase 1. Se algo precisar mudar no visual, na estrutura ou nas prioridades, é só dizer.</p>
+      <p>Se estiver alinhado, respondam este e-mail com o aval e com os arquivos, e a gente já começa o desenvolvimento da Fase 1. Se algo precisar mudar no visual, na estrutura ou nas prioridades, é só dizer.</p>
       <div class="opts">
         <span class="opt yes">Aprovado, podem seguir</span>
         <span class="opt">Aprovado com ajustes</span>
@@ -487,16 +469,7 @@
 
 <footer class="doc">
   <div class="wrap">
-    <div class="fmark">Giullia<svg class="petal-svg" style="width:.36em;height:.52em" viewBox="0 0 20 30" aria-hidden="true"><use href="#petal-shape" fill="var(--petal)"/></svg>s</div>
+    <img src="logo-giullias.png" alt="Giullia's Floricultura">
     <p>Novo site da Giullia's. Preparado pela Ossel.</p>
   </div>
 </footer>
-
-<script>
-  (function(){
-    var root=document.documentElement, btn=document.getElementById('themeBtn');
-    try{var s=localStorage.getItem('giullias-theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
-    function cur(){var t=root.getAttribute('data-theme'); if(t) return t; return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}
-    btn.addEventListener('click',function(){var n=cur()==='dark'?'light':'dark'; root.setAttribute('data-theme',n); try{localStorage.setItem('giullias-theme',n);}catch(e){}});
-  })();
-</script>
