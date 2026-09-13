@@ -1,0 +1,502 @@
+<title>Novo Site Giullia's</title>
+<meta name="description" content="Novo site da Giullia's Floricultura: a página inicial, a estrutura e os próximos passos.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap">
+<style>
+  :root{
+    --ink:#2E2019; --ink-soft:#5E5046;
+    --ground:#FBF8F4; --surface:#FFFFFF; --surface-2:#F5EFE5;
+    --line:#E3DACE; --line-strong:#CBBBA6;
+    --olive:#3F5A2A; --olive-700:#365010; --olive-ink:#22300A; --on-primary:#FFFFFF;
+    --leaf:#71A240; --petal:#E574AC; --wine:#7E1836; --nude:#DDC6B2;
+    --tint-olive:#EAF0E0; --tint-petal:#FBE6F1; --tint-wine:#F6E4E9; --tint-nude:#F2E9DC;
+    --success:#3F5A2A; --danger:#B23A2E; --warning:#9A6B00; --focus:#3F5A2A;
+    --shadow-sm:0 1px 2px rgba(46,32,25,.06), 0 1px 1px rgba(46,32,25,.04);
+    --shadow-md:0 10px 30px -12px rgba(46,32,25,.20), 0 2px 6px rgba(46,32,25,.06);
+    --shadow-lg:0 30px 60px -24px rgba(46,32,25,.30), 0 8px 20px rgba(46,32,25,.10);
+    --maxw:1120px; --r-sm:5px; --r-md:10px; --r-lg:16px; --r-pill:999px;
+    --font-display:"Cormorant Garamond", Georgia, serif;
+    --font-body:"Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#F4EEE4; --ink-soft:#C6B8AA; --ground:#1C1712; --surface:#26201A; --surface-2:#2F281F;
+      --line:#3A3128; --line-strong:#4C4235;
+      --olive:#9CC46A; --olive-700:#B6D98A; --olive-ink:#DFEFC6; --on-primary:#16130F;
+      --leaf:#8FB860; --petal:#F0A8CE; --wine:#E88AA0; --nude:#5A4E40;
+      --tint-olive:#2A3320; --tint-petal:#3A2430; --tint-wine:#3A2028; --tint-nude:#2F281F;
+      --success:#9CC46A; --danger:#E88476; --warning:#D9A63A; --focus:#9CC46A;
+      --shadow-sm:0 1px 2px rgba(0,0,0,.3);
+      --shadow-md:0 12px 32px -14px rgba(0,0,0,.6), 0 2px 6px rgba(0,0,0,.35);
+      --shadow-lg:0 30px 60px -24px rgba(0,0,0,.7), 0 8px 20px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#F4EEE4; --ink-soft:#C6B8AA; --ground:#1C1712; --surface:#26201A; --surface-2:#2F281F;
+    --line:#3A3128; --line-strong:#4C4235;
+    --olive:#9CC46A; --olive-700:#B6D98A; --olive-ink:#DFEFC6; --on-primary:#16130F;
+    --leaf:#8FB860; --petal:#F0A8CE; --wine:#E88AA0; --nude:#5A4E40;
+    --tint-olive:#2A3320; --tint-petal:#3A2430; --tint-wine:#3A2028; --tint-nude:#2F281F;
+    --success:#9CC46A; --danger:#E88476; --warning:#D9A63A; --focus:#9CC46A;
+    --shadow-sm:0 1px 2px rgba(0,0,0,.3);
+    --shadow-md:0 12px 32px -14px rgba(0,0,0,.6), 0 2px 6px rgba(0,0,0,.35);
+    --shadow-lg:0 30px 60px -24px rgba(0,0,0,.7), 0 8px 20px rgba(0,0,0,.4);
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} *{animation:none!important;transition:none!important}}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1,h2,h3,h4{font-family:var(--font-display);font-weight:500;line-height:1.12;margin:0;color:var(--ink);text-wrap:balance}
+  p{margin:0}
+  a{color:var(--olive)}
+  .eyebrow{font-family:var(--font-body);font-weight:500;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+  .muted{color:var(--ink-soft)}
+
+  header.top{position:sticky;top:0;z-index:60;backdrop-filter:saturate(1.1) blur(8px);background:color-mix(in srgb,var(--ground) 86%,transparent);border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
+  .doc-tag{display:flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+  .doc-tag b{font-family:var(--font-display);font-size:1.35rem;letter-spacing:0;color:var(--ink);text-transform:none;font-weight:600}
+  nav.jump{display:flex;gap:20px;font-size:.8rem}
+  nav.jump a{color:var(--ink-soft);text-decoration:none;white-space:nowrap}
+  nav.jump a:hover{color:var(--olive)}
+  @media (max-width:900px){nav.jump{display:none}}
+  .toggle{border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);width:38px;height:38px;border-radius:var(--r-pill);cursor:pointer;display:grid;place-items:center;flex:none}
+  .toggle:hover{border-color:var(--olive)}
+
+  .petal-svg{display:inline-block}
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:12px;flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+  .sec-intro{max-width:66ch;color:var(--ink-soft);margin-bottom:34px}
+
+  .cover{padding:76px 0 56px;border-top:none}
+  .cover .eyebrow{display:inline-flex;gap:10px;align-items:center;margin-bottom:22px}
+  .cover .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--leaf)}
+  .cover h1{font-size:clamp(2.6rem,7vw,4.4rem);line-height:1.02;letter-spacing:.005em}
+  .cover h1 em{font-style:italic;color:var(--olive)}
+  .cover .sub{font-size:1.2rem;color:var(--ink-soft);max-width:60ch;margin-top:22px}
+  .cover-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+  .chip{font-family:var(--font-body);font-size:.76rem;padding:7px 13px;border-radius:var(--r-pill);background:var(--surface-2);border:1px solid var(--line);color:var(--ink-soft)}
+  .chip.on{background:var(--tint-olive);color:var(--olive);border-color:color-mix(in srgb,var(--olive) 28%,transparent)}
+
+  .sum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+  .sum{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:22px;box-shadow:var(--shadow-sm)}
+  .sum .k{font-family:var(--font-body);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--leaf);font-weight:600;margin-bottom:8px}
+  .sum p{font-size:.95rem;color:var(--ink-soft)}
+  .sum b{color:var(--ink);font-weight:600}
+  .ask-band{margin-top:24px;background:var(--tint-olive);border:1px solid color-mix(in srgb,var(--olive) 25%,transparent);border-left:3px solid var(--olive);border-radius:0 var(--r-md) var(--r-md) 0;padding:18px 20px;font-size:.98rem}
+  .ask-band b{color:var(--ink)}
+
+  .browser{border:1px solid var(--line-strong);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);background:var(--surface)}
+  .browser .bar{display:flex;align-items:center;gap:8px;padding:11px 14px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+  .browser .bar .d{width:11px;height:11px;border-radius:50%;background:var(--line-strong)}
+  .browser .bar .url{margin-left:12px;font-family:var(--font-body);font-size:.74rem;color:var(--ink-soft);background:var(--ground);border:1px solid var(--line);border-radius:var(--r-pill);padding:4px 14px}
+  .site{background:var(--surface)}
+  .s-promo{background:var(--olive);color:var(--on-primary);text-align:center;font-family:var(--font-body);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;padding:9px 12px}
+  .s-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 26px;flex-wrap:wrap}
+  .s-search{font-family:var(--font-body);font-size:.82rem;color:var(--ink-soft);display:flex;align-items:center;gap:7px}
+  .s-mark{font-family:var(--font-display);font-weight:600;font-size:1.7rem;display:flex;align-items:baseline;color:var(--ink)}
+  .s-util{font-family:var(--font-body);font-size:.8rem;color:var(--ink-soft);display:flex;gap:16px;align-items:center}
+  .s-util .cart{display:inline-flex;align-items:center;gap:6px}
+  .s-nav{display:flex;justify-content:center;gap:30px;padding:12px 26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-family:var(--font-body);font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;flex-wrap:wrap}
+  .s-nav span{color:var(--ink)}
+  .s-nav span.act{color:var(--olive);font-weight:600}
+  .s-hero{display:grid;grid-template-columns:1.05fr 1fr;gap:0;min-height:420px;background:linear-gradient(180deg,var(--surface-2),var(--surface))}
+  .s-hero .txt{padding:56px 40px;display:flex;flex-direction:column;justify-content:center}
+  .s-hero .eye{font-family:var(--font-body);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:16px}
+  .s-hero h3{font-size:clamp(2.4rem,4.6vw,3.6rem);line-height:1.02;color:var(--ink)}
+  .s-hero h3 em{font-style:italic;color:var(--olive);display:block}
+  .s-hero .p{font-size:1.02rem;color:var(--ink-soft);margin:20px 0 26px;max-width:34ch}
+  .s-hero .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .s-hero .art{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 70% 20%,#f3dfe9,transparent 60%),linear-gradient(150deg,#e6ecd8,#efe6d6)}
+  :root[data-theme="dark"] .s-hero .art,:root:not([data-theme="light"]) .s-hero .art{filter:saturate(.7) brightness(.72)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .s-hero .art{filter:saturate(.7) brightness(.72)}}
+  .s-hero .art svg{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:78%;height:auto}
+  .btn{font-family:var(--font-body);font-weight:500;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;padding:12px 22px;border-radius:var(--r-sm);border:1px solid transparent;cursor:pointer;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+  .btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+  .btn-primary{background:var(--olive);color:var(--on-primary)}
+  .btn-primary:hover{background:var(--olive-700)}
+  .btn-secondary{background:transparent;color:var(--olive);border-color:var(--olive)}
+  .btn-secondary:hover{background:var(--tint-olive)}
+  .s-trust{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+  .s-trust .ti{padding:18px 20px;display:flex;gap:11px;align-items:flex-start;border-left:1px solid var(--line)}
+  .s-trust .ti:first-child{border-left:none}
+  .s-trust svg{color:var(--olive);flex:none;margin-top:2px}
+  .s-trust .tt{font-family:var(--font-body);font-weight:600;font-size:.78rem;letter-spacing:.02em;text-transform:uppercase}
+  .s-trust .td{font-size:.78rem;color:var(--ink-soft)}
+  .s-block{padding:44px 26px}
+  .s-block .center{text-align:center;margin-bottom:26px}
+  .s-block .center h3{font-size:clamp(1.7rem,3.2vw,2.3rem)}
+  .cats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .cat{position:relative;border-radius:var(--r-md);overflow:hidden;min-height:210px;display:flex;align-items:flex-end;padding:18px;color:#fff;border:1px solid var(--line)}
+  .cat::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,48,10,.02),rgba(34,48,10,.74))}
+  .cat .cb{position:relative;z-index:1}
+  .cat .cb h4{color:#fff;font-size:1.4rem}
+  .cat .cb p{color:rgba(255,255,255,.86);font-size:.82rem}
+  .cat .arw{position:relative;z-index:1;margin-left:auto;align-self:flex-end;font-size:1.15rem}
+  .c1{background:linear-gradient(135deg,#e7c8d6,#c99fb4)}
+  .c2{background:linear-gradient(135deg,#5c7c3e,#33490f)}
+  .c3{background:linear-gradient(135deg,#8c9a77,#4a5b39)}
+  .c4{background:linear-gradient(135deg,#e9c9b6,#d3a0a0)}
+  .s-best{background:var(--surface-2)}
+  .rail{display:flex;gap:16px;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x mandatory}
+  .rail::-webkit-scrollbar{height:8px}
+  .rail::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:8px}
+  .prod{flex:0 0 240px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow-sm)}
+  .prod .ph{aspect-ratio:1/1;position:relative;display:grid;place-items:center;background:linear-gradient(135deg,#dfe8cf,#f3e2ec 60%,#efe6d6)}
+  :root[data-theme="dark"] .prod .ph,:root:not([data-theme="light"]) .prod .ph{filter:saturate(.7) brightness(.72)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .prod .ph{filter:saturate(.7) brightness(.72)}}
+  .prod .tag{position:absolute;top:10px;left:10px;font-family:var(--font-body);font-size:.68rem;font-weight:600;padding:4px 9px;border-radius:var(--r-pill);background:var(--tint-wine);color:var(--wine)}
+  .prod .in{padding:14px 15px 16px}
+  .prod .cat-l{font-family:var(--font-body);font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--olive);font-weight:600}
+  .prod .nm{font-family:var(--font-display);font-size:1.25rem;font-weight:500;margin:3px 0 7px;line-height:1.08}
+  .prod .pr{font-family:var(--font-body);font-weight:600;font-size:1.05rem;color:var(--ink);font-variant-numeric:tabular-nums}
+  .prod .pc{font-size:.74rem;color:var(--ink-soft);margin-top:2px}
+  .s-foot{background:var(--olive-700);color:#efeee6;padding:34px 26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--font-body);font-size:.82rem}
+  :root[data-theme="dark"] .s-foot,:root:not([data-theme="light"]) .s-foot{background:#20180f}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .s-foot{background:#20180f}}
+  .s-foot .fm{font-family:var(--font-display);font-size:1.5rem;color:#fff;display:flex;align-items:baseline;margin-bottom:8px}
+  .s-foot .cols{display:flex;gap:44px;flex-wrap:wrap}
+  .s-foot .cols b{display:block;color:#fff;font-weight:600;margin-bottom:8px;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase}
+  .s-foot .cols span{display:block;color:rgba(255,255,255,.72);padding:2px 0}
+  @media (max-width:760px){
+    .s-hero{grid-template-columns:1fr}.s-hero .art{min-height:240px;order:-1}
+    .s-trust{grid-template-columns:repeat(2,1fr)}.s-trust .ti:nth-child(3){border-left:none}
+    .cats{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:480px){.cats{grid-template-columns:1fr}.s-trust{grid-template-columns:1fr}.s-trust .ti{border-left:none}}
+
+  .id-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:720px){.id-grid{grid-template-columns:1fr}}
+  .id-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:24px;box-shadow:var(--shadow-sm)}
+  .id-card h4{font-size:1.3rem;margin-bottom:14px}
+  .pal{display:flex;gap:8px;flex-wrap:wrap}
+  .pal .sw{width:52px;height:52px;border-radius:8px;border:1px solid var(--line);display:flex;align-items:flex-end;justify-content:center;font-family:var(--font-body);font-size:.55rem;color:rgba(255,255,255,.9);padding-bottom:3px}
+  .type-demo .d{font-family:var(--font-display);font-size:2.4rem;color:var(--ink);line-height:1}
+  .type-demo .b{font-family:var(--font-body);font-size:.95rem;color:var(--ink-soft);margin-top:8px}
+
+  .tree{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+  .branch{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:18px}
+  .branch h4{font-family:var(--font-body);font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--olive);margin-bottom:11px}
+  .branch ul{list-style:none;margin:0;padding:0}
+  .branch li{font-size:.86rem;color:var(--ink-soft);padding:3px 0;border-bottom:1px dashed var(--line)}
+  .branch li:last-child{border-bottom:none}
+  .branch li .fut{font-size:.62rem;color:var(--leaf);letter-spacing:.06em;margin-left:5px;text-transform:uppercase}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;align-items:center}
+  .flow .st{font-family:var(--font-body);font-size:.78rem;background:var(--surface-2);border:1px solid var(--line);padding:8px 12px;border-radius:var(--r-sm)}
+  .flow .aw{color:var(--leaf)}
+
+  .fun{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm)}
+  .fun .fh{padding:24px 26px;background:linear-gradient(135deg,var(--tint-wine),var(--surface));border-bottom:1px solid var(--line)}
+  .fun .fh .lbl{font-family:var(--font-body);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--wine);font-weight:600}
+  .fun .fh h3{font-size:1.9rem;margin-top:6px}
+  .fun .fb{padding:24px 26px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+  .fun .col h5{font-family:var(--font-body);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);font-weight:600;margin:0 0 10px}
+  .fun .col ul{margin:0;padding-left:18px}
+  .fun .col li{font-size:.88rem;color:var(--ink-soft);padding:2px 0}
+  .fun .verdict{margin:0 26px 24px;background:var(--tint-olive);border-left:3px solid var(--olive);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:14px 18px;font-size:.9rem}
+
+  .road{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+  .phase{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:22px;box-shadow:var(--shadow-sm)}
+  .phase .pn{font-family:var(--font-body);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:var(--r-pill);display:inline-block;margin-bottom:12px}
+  .phase.p1 .pn{background:var(--olive);color:var(--on-primary)}
+  .phase.p15 .pn{background:var(--tint-wine);color:var(--wine);border:1px solid color-mix(in srgb,var(--wine) 30%,transparent)}
+  .phase.p2 .pn{background:var(--surface-2);color:var(--ink-soft);border:1px solid var(--line)}
+  .phase h4{font-size:1.35rem;margin-bottom:4px}
+  .phase .goal{font-size:.82rem;color:var(--olive);font-weight:500;margin-bottom:12px}
+  .phase ul{margin:0;padding-left:18px}
+  .phase li{font-size:.87rem;color:var(--ink-soft);padding:2px 0}
+
+  .who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+  .who{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--leaf);border-radius:0 0 var(--r-md) var(--r-md);padding:20px}
+  .who.us{border-top-color:var(--wine)}
+  .who .role{font-family:var(--font-body);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--olive);font-weight:600;margin-bottom:10px}
+  .who.us .role{color:var(--wine)}
+  .who ul{margin:0;padding-left:18px}
+  .who li{font-size:.87rem;color:var(--ink-soft);padding:2px 0}
+
+  .approve{background:linear-gradient(135deg,var(--tint-olive),var(--surface));border:1px solid color-mix(in srgb,var(--olive) 22%,transparent);border-radius:var(--r-lg);padding:40px 32px;text-align:center}
+  .approve h2{font-size:clamp(1.9rem,4vw,2.6rem)}
+  .approve p{max-width:56ch;margin:14px auto 0;color:var(--ink-soft)}
+  .approve .opts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .approve .opt{font-family:var(--font-body);font-size:.9rem;padding:12px 22px;border-radius:var(--r-sm);border:1px solid var(--line-strong);background:var(--surface);color:var(--ink)}
+  .approve .opt.yes{background:var(--olive);color:var(--on-primary);border-color:var(--olive);font-weight:500}
+
+  footer.doc{padding:44px 0 64px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:.82rem}
+  footer.doc .fmark{font-family:var(--font-display);font-size:1.5rem;color:var(--ink);display:flex;align-items:baseline;margin-bottom:8px}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="petal-shape" viewBox="0 0 20 30"><path d="M10 0 C15 9 20 14 20 20 A10 10 0 1 1 0 20 C0 14 5 9 10 0 Z"/></symbol>
+</defs></svg>
+
+<header class="top">
+  <div class="wrap">
+    <div class="doc-tag">Novo site · <b>Giullia<svg class="petal-svg" style="width:.34em;height:.5em" viewBox="0 0 20 30" aria-hidden="true"><use href="#petal-shape" fill="var(--petal)"/></svg>s</b></div>
+    <nav class="jump" aria-label="Seções">
+      <a href="#resumo">Resumo</a>
+      <a href="#home">Página inicial</a>
+      <a href="#arquitetura">Estrutura</a>
+      <a href="#coroas">Coroas</a>
+      <a href="#fases">Fases</a>
+      <a href="#aprovar">Aprovar</a>
+    </nav>
+    <button class="toggle" id="themeBtn" aria-label="Alternar tema claro e escuro" title="Tema claro e escuro">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.8A8 8 0 1 1 11.2 3a6 6 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="cover">
+    <div class="eyebrow"><span class="dot"></span> O novo site</div>
+    <h1>Um novo site à altura da <em>Giullia's</em>.</h1>
+    <p class="sub">Reunimos aqui a marca em ação, a estrutura do site e os próximos passos. A ideia é deixar tudo à vista, alinhar todo mundo e ter o aval de vocês para começar.</p>
+    <div class="cover-meta">
+      <span class="chip on">Para Diretoria e Marketing</span>
+      <span class="chip">Feito pela Ossel</span>
+      <span class="chip">Entrega em São Paulo e Rio de Janeiro</span>
+    </div>
+  </section>
+
+  <section id="resumo">
+    <div class="sec-head"><h2>Resumo</h2></div>
+    <p class="sec-intro">Onde chegamos até aqui, em quatro pontos.</p>
+    <div class="sum-grid">
+      <div class="sum"><div class="k">Posicionamento</div><p>Marca <b>premium, feminina e botânica</b>, reunindo Boutique, Garden e Presentes numa linguagem só. O site é feito para <b>vender</b>.</p></div>
+      <div class="sum"><div class="k">Identidade</div><p>Sistema visual <b>pronto para a web</b>: cores, tipografia e componentes fiéis ao rebranding, com boa legibilidade em qualquer tela.</p></div>
+      <div class="sum"><div class="k">Experiência</div><p><b>Feito primeiro para o celular</b> e ótimo no computador. Uma home pensada para emocionar e converter, com caminhos claros de compra.</p></div>
+      <div class="sum"><div class="k">Nosso diferencial</div><p>O canal de <b>Coroas e Homenagens</b>, nosso ponto forte com funerárias, entra como recurso opcional que liga e desliga sem afetar a loja principal.</p></div>
+    </div>
+    <div class="ask-band"><b>O que pedimos:</b> deem uma olhada na página inicial logo abaixo e no restante do documento. Se estiver no caminho certo, respondam o e-mail com o aval e a gente começa. Se algo precisar mudar, é só apontar.</div>
+  </section>
+
+  <section id="home">
+    <div class="sec-head"><h2>A página inicial</h2></div>
+    <p class="sec-intro">Uma amostra de como a home fica no novo visual. Redimensione a janela para ver como ela se adapta ao celular.</p>
+
+    <div class="browser">
+      <div class="bar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="url">giullias.com.br</span></div>
+      <div class="site">
+        <div class="s-promo">Frete grátis para São Paulo em compras acima de R$ 250</div>
+        <div class="s-head">
+          <span class="s-search"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg> Buscar</span>
+          <span class="s-mark">Giullia<svg class="petal-svg" style="width:.4em;height:.58em" viewBox="0 0 20 30" aria-hidden="true"><use href="#petal-shape" fill="var(--petal)"/></svg>s</span>
+          <span class="s-util"><span>Entrar ou criar conta</span><span class="cart"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg> Carrinho (0)</span></span>
+        </div>
+        <div class="s-nav"><span class="act">Ocasiões</span><span>Flores</span><span>Garden</span><span>Personalizados</span><span>Nossas Lojas</span></div>
+
+        <div class="s-hero">
+          <div class="txt">
+            <div class="eye">Feito para emocionar</div>
+            <h3>Flores que <em>falam por você</em></h3>
+            <p class="p">Arranjos exclusivos para transformar momentos em memórias inesquecíveis.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary">Comprar agora</a>
+              <a class="btn btn-secondary">Ver coleção</a>
+            </div>
+          </div>
+          <div class="art" aria-hidden="true">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="#4a5b39" stroke-width="2.4" fill="none" stroke-linecap="round">
+                <path d="M100 200 C96 150 92 120 100 96"/>
+                <path d="M100 150 C80 138 70 120 66 104"/>
+                <path d="M100 150 C120 138 130 120 134 104"/>
+                <path d="M100 168 C86 160 78 150 74 138"/>
+                <path d="M100 168 C114 160 122 150 126 138"/>
+              </g>
+              <g stroke="#5c7c3e" stroke-width="2" fill="#7ea44e">
+                <ellipse cx="66" cy="100" rx="9" ry="17" transform="rotate(-32 66 100)"/>
+                <ellipse cx="134" cy="100" rx="9" ry="17" transform="rotate(32 134 100)"/>
+                <ellipse cx="74" cy="134" rx="7" ry="13" transform="rotate(-24 74 134)"/>
+                <ellipse cx="126" cy="134" rx="7" ry="13" transform="rotate(24 126 134)"/>
+              </g>
+              <g>
+                <g transform="translate(100 78)"><circle r="20" fill="#e574ac"/><circle r="16" fill="#ef93bf"/><circle r="7" fill="#fbe0ee"/></g>
+                <g transform="translate(72 92)"><circle r="15" fill="#f0a8ce"/><circle r="6" fill="#fff2f8"/></g>
+                <g transform="translate(128 92)"><circle r="15" fill="#f0a8ce"/><circle r="6" fill="#fff2f8"/></g>
+                <g transform="translate(84 66)"><circle r="12" fill="#faf3e6"/><circle r="5" fill="#e6c98f"/></g>
+                <g transform="translate(118 66)"><circle r="12" fill="#faf3e6"/><circle r="5" fill="#e6c98f"/></g>
+                <g transform="translate(100 108)"><circle r="13" fill="#f6dfe9"/><circle r="5" fill="#d98cb4"/></g>
+              </g>
+              <path d="M78 200 C90 176 110 176 122 200 Z" fill="#c9a98a"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="s-trust">
+          <div class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c1.8 3.5 4.5 4.8 4.5 8a4.5 4.5 0 01-9 0C7.5 7.8 10.2 6.5 12 3z"/></svg><div><div class="tt">Flores frescas</div><div class="td">Selecionadas diariamente</div></div></div>
+          <div class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.5"/><circle cx="17.5" cy="17" r="1.5"/></svg><div><div class="tt">Entrega rápida</div><div class="td">São Paulo e Rio de Janeiro</div></div></div>
+          <div class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 9h16v11H4zM3 6h18v3H3zM12 6v14"/></svg><div><div class="tt">Presente perfeito</div><div class="td">Em qualquer ocasião</div></div></div>
+          <div class="ti"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg><div><div class="tt">Compra segura</div><div class="td">Ambiente 100% protegido</div></div></div>
+        </div>
+
+        <div class="s-block">
+          <div class="center"><h3>Escolha por categoria</h3></div>
+          <div class="cats">
+            <div class="cat c1"><div class="cb"><h4>Ocasiões</h4><p>Presentes para cada momento</p></div><span class="arw">&rsaquo;</span></div>
+            <div class="cat c2"><div class="cb"><h4>Flores</h4><p>Beleza natural que encanta</p></div><span class="arw">&rsaquo;</span></div>
+            <div class="cat c3"><div class="cb"><h4>Garden</h4><p>Plantas que transformam ambientes</p></div><span class="arw">&rsaquo;</span></div>
+            <div class="cat c4"><div class="cb"><h4>Personalizados</h4><p>Criamos seu arranjo do seu jeito</p></div><span class="arw">&rsaquo;</span></div>
+          </div>
+        </div>
+
+        <div class="s-block s-best">
+          <div class="center"><h3>Mais vendidos</h3></div>
+          <div class="rail">
+            <div class="prod"><div class="ph"><span class="tag">20% off</span></div><div class="in"><div class="cat-l">Buquês</div><div class="nm">Buquê Encanto</div><div class="pr">R$ 189,90</div><div class="pc">3x de R$ 63,30 sem juros</div></div></div>
+            <div class="prod"><div class="ph"></div><div class="in"><div class="cat-l">Arranjos</div><div class="nm">Arranjo Serena</div><div class="pr">R$ 249,00</div><div class="pc">4x de R$ 62,25 sem juros</div></div></div>
+            <div class="prod"><div class="ph"></div><div class="in"><div class="cat-l">Garden</div><div class="nm">Orquídea Phalaenopsis</div><div class="pr">R$ 159,90</div><div class="pc">3x de R$ 53,30 sem juros</div></div></div>
+            <div class="prod"><div class="ph"><span class="tag">Novo</span></div><div class="in"><div class="cat-l">Cestas</div><div class="nm">Café da Manhã Afeto</div><div class="pr">R$ 219,00</div><div class="pc">4x de R$ 54,75 sem juros</div></div></div>
+            <div class="prod"><div class="ph"></div><div class="in"><div class="cat-l">Ramalhetes</div><div class="nm">Ramalhete Primavera</div><div class="pr">R$ 129,90</div><div class="pc">2x de R$ 64,95 sem juros</div></div></div>
+          </div>
+        </div>
+
+        <div class="s-foot">
+          <div>
+            <div class="fm">Giullia<svg class="petal-svg" style="width:.36em;height:.52em" viewBox="0 0 20 30" aria-hidden="true"><use href="#petal-shape" fill="var(--petal)"/></svg>s</div>
+            <div style="color:rgba(255,255,255,.72);max-width:26ch">Flores que falam por você. Entregas em São Paulo e Rio, todos os dias.</div>
+          </div>
+          <div class="cols">
+            <div><b>Institucional</b><span>Sobre a Giullia's</span><span>Nossas Lojas</span><span>Contato</span></div>
+            <div><b>Ajuda</b><span>Entrega e frete</span><span>Trocas</span><span>Pagamentos</span></div>
+            <div><b>Pague com</b><span>Pix e boleto</span><span>Cartão em até 4x</span><span>Mercado Pago</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="identidade">
+    <div class="sec-head"><h2>Identidade</h2></div>
+    <p class="sec-intro">O rebranding traduzido para a web. Cada cor tem um papel definido e um bom contraste.</p>
+    <div class="id-grid">
+      <div class="id-card">
+        <h4>Paleta</h4>
+        <div class="pal">
+          <div class="sw" style="background:#3F5A2A">Oliva</div>
+          <div class="sw" style="background:#365010">Escura</div>
+          <div class="sw" style="background:#71A240">Folha</div>
+          <div class="sw" style="background:#2E2019">Café</div>
+          <div class="sw" style="background:#E574AC">Pétala</div>
+          <div class="sw" style="background:#7E1836">Vinho</div>
+          <div class="sw" style="background:#DDC6B2;color:#5b4a38">Nude</div>
+        </div>
+        <p class="muted" style="font-size:.82rem;margin-top:14px">Oliva, vinho e café levam texto e botões. Folha e pétala são detalhes. O rosa é o apóstrofo da marca.</p>
+      </div>
+      <div class="id-card">
+        <h4>Tipografia</h4>
+        <div class="type-demo">
+          <div class="d">Emocionar e encantar</div>
+          <div class="b">Cormorant Garamond nos títulos, Jost no texto e na navegação. Elegante, feminina e legível.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="arquitetura">
+    <div class="sec-head"><h2>Estrutura do site</h2></div>
+    <p class="sec-intro">O menu definido pelo marketing. Cinco entradas principais, com profundidade por ocasião e por linha de produto.</p>
+    <div class="tree">
+      <div class="branch"><h4>Ocasiões</h4><ul><li>Amor e Amizade</li><li>Aniversário</li><li>Maternidade</li><li>Condolências</li><li>Corporativos</li><li>Debutante e Noivas</li><li>Para Ele e Para Ela</li><li>e mais 8 ocasiões</li></ul></div>
+      <div class="branch"><h4>Flores</h4><ul><li>Arranjos</li><li>Buquês</li><li>Casamento</li><li>Premium</li><li>Ramalhetes</li><li>Festas <span class="fut">encomenda</span></li><li>Eventos <span class="fut">futuro</span></li></ul></div>
+      <div class="branch"><h4>Garden</h4><ul><li>Plantas</li><li>Vasos e Cachepôs</li><li>Premium</li><li>Presentes</li></ul></div>
+      <div class="branch"><h4>Personalizados</h4><ul><li>Cestas (5 tipos)</li><li>Presentes Criativos</li><li>Monte seu Buquê</li><li>Monte seu Presente</li></ul></div>
+      <div class="branch"><h4>Nossas Lojas</h4><ul><li>Localizador de lojas físicas</li></ul></div>
+    </div>
+    <div class="flow">
+      <span class="st">Frete grátis</span><span class="aw">&rsaquo;</span>
+      <span class="st">Topo</span><span class="aw">&rsaquo;</span>
+      <span class="st">Menu</span><span class="aw">&rsaquo;</span>
+      <span class="st">Destaque</span><span class="aw">&rsaquo;</span>
+      <span class="st">Confiança</span><span class="aw">&rsaquo;</span>
+      <span class="st">Categorias</span><span class="aw">&rsaquo;</span>
+      <span class="st">Mais vendidos</span>
+    </div>
+  </section>
+
+  <section id="coroas">
+    <div class="sec-head"><h2>Coroas e Homenagens</h2></div>
+    <p class="sec-intro">Temos um ponto forte com funerárias. Trazemos isso como um recurso opcional, feito para ligar ou desligar sem mexer no resto do site.</p>
+    <div class="fun">
+      <div class="fh"><div class="lbl">Recurso opcional, nosso ponto forte</div><h3>Um canal próprio, fora da vitrine celebrativa</h3></div>
+      <div class="fb">
+        <div class="col"><h5>Como funciona</h5><ul><li>Página própria, fora do menu celebrativo</li><li>Pedido rápido, sem exigir cadastro</li><li>Campos do momento: local e sala do velório, horário e o texto do laço</li><li>Atendimento por WhatsApp para a urgência</li></ul></div>
+        <div class="col"><h5>Entrega por parceiros</h5><ul><li>A funerária é o parceiro que entrega</li><li>A Giullia's recebe o pedido e paga a comissão</li><li>Usa os links de parceiros já previstos no projeto</li><li>Sem assumir a entrega urgente por conta própria no início</li></ul></div>
+        <div class="col"><h5>Tom e marca</h5><ul><li>Registro mais sóbrio: vinho, café e nude</li><li>Sem rosa e sem linguagem festiva</li><li>Respeitoso e claro num momento sensível</li><li>Não aparece na home nem nas categorias</li></ul></div>
+      </div>
+      <div class="verdict"><b>Como entra:</b> começamos com uma versão enxuta e opcional, com a entrega feita por parceiros. A operação própria de urgência e o portal completo para funerárias ficam para a fase seguinte, depois de validar a procura.</div>
+    </div>
+  </section>
+
+  <section id="fases">
+    <div class="sec-head"><h2>Fases e próximos passos</h2></div>
+    <p class="sec-intro">Colocar no ar primeiro o essencial que vende. Crescer a partir daí.</p>
+    <div class="road">
+      <div class="phase p1">
+        <span class="pn">Fase 1</span>
+        <h4>Lançamento</h4>
+        <div class="goal">A loja que vende, prioridade máxima</div>
+        <ul><li>Nova plataforma no lugar da Tray</li><li>Catálogo Boutique, Garden e Presentes</li><li>Home, categorias, produto e checkout</li><li>Pagamento por Pix, boleto e cartão</li><li>Frete e regras de entrega</li><li>Integração com o Protheus e Nossas Lojas</li><li>Ótimo no celular e no computador</li></ul>
+      </div>
+      <div class="phase p15">
+        <span class="pn">Fase 2</span>
+        <h4>Coroas e Homenagens</h4>
+        <div class="goal">Recurso opcional, entrega por parceiros</div>
+        <ul><li>Página própria e pedido sem cadastro</li><li>Campos do pedido e texto do laço</li><li>WhatsApp e links de parceiros</li><li>Registro visual mais sóbrio</li><li>Liga e desliga sem afetar a loja</li></ul>
+      </div>
+      <div class="phase p2">
+        <span class="pn">Fase 3</span>
+        <h4>Crescimento</h4>
+        <div class="goal">Depois de validar a procura</div>
+        <ul><li>Área exclusiva para funerárias parceiras</li><li>Preço por volume, faturamento e recompra</li><li>Acompanhamento e comprovante de entrega</li><li>Operação própria de urgência</li><li>Eventos, permanentes e novas parcerias</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="decisoes">
+    <div class="sec-head"><h2>O que precisamos de vocês</h2></div>
+    <p class="sec-intro">Para seguir, dependemos de algumas definições. A parte de tecnologia e plataforma fica com a nossa equipe.</p>
+    <div class="who-grid">
+      <div class="who"><div class="role">Diretoria</div><ul><li>Aval geral neste documento e nas fases</li><li>Sinal verde para o canal de Coroas</li></ul></div>
+      <div class="who"><div class="role">Marketing</div><ul><li>Logo final em vetor</li><li>Arquivos da fonte, se houver</li><li>Fotos de produto e banners</li><li>Textos e categorias finais</li></ul></div>
+      <div class="who"><div class="role">Operação</div><ul><li>Tabela de frete e dimensões dos produtos</li><li>Regras de entrega e agendamento</li><li>Parceiros para a entrega das coroas</li></ul></div>
+      <div class="who us"><div class="role">Com a nossa equipe (TI)</div><ul><li>Escolha da plataforma e migração</li><li>Integração com o Protheus</li><li>Pagamentos e frete no site</li><li>Desenvolvimento do canal de Coroas</li></ul></div>
+    </div>
+  </section>
+
+  <section id="aprovar" style="border-top:none;padding-top:28px">
+    <div class="approve">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:14px">Decisão</div>
+      <h2>Podemos seguir?</h2>
+      <p>Se estiver alinhado, respondam este e-mail com o aval e a gente já começa o desenvolvimento da Fase 1. Se algo precisar mudar no visual, na estrutura ou nas prioridades, é só dizer.</p>
+      <div class="opts">
+        <span class="opt yes">Aprovado, podem seguir</span>
+        <span class="opt">Aprovado com ajustes</span>
+        <span class="opt">Vamos conversar</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="doc">
+  <div class="wrap">
+    <div class="fmark">Giullia<svg class="petal-svg" style="width:.36em;height:.52em" viewBox="0 0 20 30" aria-hidden="true"><use href="#petal-shape" fill="var(--petal)"/></svg>s</div>
+    <p>Novo site da Giullia's. Preparado pela Ossel.</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('themeBtn');
+    try{var s=localStorage.getItem('giullias-theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
+    function cur(){var t=root.getAttribute('data-theme'); if(t) return t; return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}
+    btn.addEventListener('click',function(){var n=cur()==='dark'?'light':'dark'; root.setAttribute('data-theme',n); try{localStorage.setItem('giullias-theme',n);}catch(e){}});
+  })();
+</script>
