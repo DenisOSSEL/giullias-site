@@ -4,4 +4,4 @@ Apresentação do novo site da Giullia's Floricultura: página inicial, estrutur
 
 - `index.html` — a apresentação completa (abre direto no navegador).
 
-Preparado pela Ossel.
+Preparado pela OSSEL.
