@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Giullia's — Loja</title>
+<link rel="icon" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap">
+<style>
+  :root{
+    color-scheme:light;
+    --ink:#2E2019; --ink-soft:#5E5046;
+    --ground:#FBF8F4; --surface:#FFFFFF; --surface-2:#F5EFE5;
+    --line:#E3DACE; --line-strong:#CBBBA6;
+    --olive:#3F5A2A; --olive-700:#365010; --on-primary:#FFFFFF;
+    --leaf:#71A240; --petal:#E574AC; --wine:#7E1836; --nude:#DDC6B2;
+    --tint-olive:#EAF0E0; --tint-petal:#FBE6F1;
+    --danger:#B23A2E;
+    --shadow-md:0 10px 30px -12px rgba(46,32,25,.20), 0 2px 6px rgba(46,32,25,.06);
+    --maxw:1120px; --r-md:10px; --r-lg:16px; --r-pill:999px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);
+    font-family:'Jost',system-ui,sans-serif;line-height:1.55;font-size:16px}
+  main{max-width:var(--maxw);margin:0 auto;padding:0 16px 80px}
+  h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.15;margin:0}
+  header.top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+    max-width:var(--maxw);margin:0 auto;padding:22px 16px;flex-wrap:wrap}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700}
+  .brand span{color:var(--petal)}
+  .cartbtn{border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);
+    border-radius:var(--r-pill);padding:8px 18px;font:inherit;font-weight:500;cursor:pointer}
+  .cartbtn b{color:var(--olive)}
+  .hero{padding:8px 0 20px}
+  .hero h1{font-size:2.2rem}
+  .hero p{color:var(--ink-soft);max-width:62ch;margin:6px 0 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-top:20px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+    padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+  .card h3{font-size:1.25rem;font-weight:600}
+  .preco{font-weight:600;font-size:1.05rem}
+  .badge{align-self:flex-start;font-size:.72rem;font-weight:600;letter-spacing:.04em;
+    border-radius:var(--r-pill);padding:2px 10px;background:var(--tint-olive);color:var(--olive)}
+  .badge.enc{background:var(--tint-petal);color:var(--wine)}
+  .add{margin-top:auto;border:0;background:var(--olive);color:var(--on-primary);
+    border-radius:var(--r-pill);padding:9px 16px;font:inherit;font-weight:500;cursor:pointer}
+  .add:hover{background:var(--olive-700)}
+  .estado{padding:40px 0;color:var(--ink-soft)}
+  /* carrinho / checkout */
+  dialog{border:1px solid var(--line-strong);border-radius:var(--r-lg);box-shadow:var(--shadow-md);
+    width:min(560px,calc(100vw - 32px));padding:0;color:var(--ink)}
+  dialog::backdrop{background:rgba(46,32,25,.35)}
+  .dlg{padding:22px}
+  .dlg h2{font-size:1.6rem;margin-bottom:10px}
+  .linha{display:flex;justify-content:space-between;gap:10px;align-items:center;
+    padding:8px 0;border-bottom:1px solid var(--line)}
+  .linha small{color:var(--ink-soft)}
+  .qtd{display:flex;align-items:center;gap:8px}
+  .qtd button{border:1px solid var(--line-strong);background:var(--surface);border-radius:6px;
+    width:28px;height:28px;cursor:pointer;font:inherit}
+  .total{display:flex;justify-content:space-between;font-weight:600;font-size:1.1rem;padding:14px 0}
+  form.chk{display:grid;gap:10px;margin-top:8px}
+  form.chk label{display:grid;gap:4px;font-size:.9rem;font-weight:500}
+  form.chk input,form.chk select,form.chk textarea{font:inherit;padding:9px 12px;
+    border:1px solid var(--line-strong);border-radius:var(--r-md);background:var(--surface);color:var(--ink)}
+  .duas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:480px){.duas{grid-template-columns:1fr}}
+  .acoes{display:flex;gap:10px;justify-content:flex-end;margin-top:14px;flex-wrap:wrap}
+  .ghost{border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);
+    border-radius:var(--r-pill);padding:9px 18px;font:inherit;cursor:pointer}
+  .cta{border:0;background:var(--olive);color:var(--on-primary);border-radius:var(--r-pill);
+    padding:10px 22px;font:inherit;font-weight:500;cursor:pointer}
+  .cta[disabled]{opacity:.55;cursor:wait}
+  .erro{color:var(--danger);font-size:.9rem;min-height:1.2em}
+  .ok{background:var(--tint-olive);border:1px solid var(--line);border-radius:var(--r-lg);
+    padding:18px;margin-top:10px}
+  .ok b.codigo{font-size:1.4rem;color:var(--olive);letter-spacing:.06em}
+  .aviso{font-size:.85rem;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">GIULLIA<span>'</span>S</div>
+  <button class="cartbtn" id="abrirCarrinho" type="button">Carrinho · <b id="contagem">0</b></button>
+</header>
+<main>
+  <section class="hero">
+    <h1>Flores para hoje, para quem você ama</h1>
+    <p>Escolha, conte quando e onde entregar, e a nossa equipe confirma pelo
+    WhatsApp com o link de pagamento. Entrega própria com data e período
+    escolhidos por você, ou retirada na loja.</p>
+  </section>
+  <section id="catalogo" class="grid" hidden></section>
+  <p id="estado" class="estado">Carregando o catálogo…</p>
+</main>
+
+<dialog id="carrinho">
+  <div class="dlg">
+    <h2>Seu pedido</h2>
+    <div id="itensCarrinho"></div>
+    <div class="total"><span>Total</span><span id="totalCarrinho">R$ 0,00</span></div>
+    <form class="chk" id="checkout">
+      <label>Seu nome
+        <input name="clienteNome" required minlength="2" maxlength="160" autocomplete="name">
+      </label>
+      <div class="duas">
+        <label>WhatsApp / telefone
+          <input name="clienteTelefone" required minlength="8" maxlength="32" inputmode="tel" autocomplete="tel">
+        </label>
+        <label>E-mail (opcional)
+          <input name="clienteEmail" type="email" maxlength="160" autocomplete="email">
+        </label>
+      </div>
+      <div class="duas">
+        <label>Receber como
+          <select name="tipo" id="tipoEntrega">
+            <option value="entrega">Entrega</option>
+            <option value="retirada">Retirada na loja</option>
+          </select>
+        </label>
+        <label>Data
+          <input name="data" type="date" required>
+        </label>
+      </div>
+      <label>Período
+        <select name="janela">
+          <option value="manhã">Manhã (9h às 13h)</option>
+          <option value="tarde">Tarde (13h às 18h)</option>
+        </select>
+      </label>
+      <label id="campoEndereco">Endereço de entrega
+        <input name="endereco" maxlength="300" autocomplete="street-address"
+          placeholder="Rua, número, bairro e cidade">
+      </label>
+      <div class="duas">
+        <label>Quem recebe (opcional)
+          <input name="destinatario" maxlength="160">
+        </label>
+        <label>Mensagem do cartão (opcional)
+          <input name="mensagemCartao" maxlength="300" placeholder="Ex.: Com carinho, Ana">
+        </label>
+      </div>
+      <label>Observações (opcional)
+        <textarea name="observacao" maxlength="500" rows="2"></textarea>
+      </label>
+      <p class="erro" id="erro" role="alert"></p>
+      <div class="acoes">
+        <button class="ghost" type="button" id="fecharCarrinho">Continuar escolhendo</button>
+        <button class="cta" type="submit" id="enviar">Enviar pedido</button>
+      </div>
+      <p class="aviso">Ao enviar, nossa equipe confirma a disponibilidade e manda o
+      link de pagamento seguro (cartão ou Pix) no seu WhatsApp. Nada é cobrado agora.</p>
+    </form>
+    <div class="ok" id="confirmacao" hidden>
+      <p>Pedido recebido! Guarde o seu código:</p>
+      <p><b class="codigo" id="codigoPedido"></b></p>
+      <p class="aviso">Vamos confirmar pelo WhatsApp informado e enviar o link de
+      pagamento. Qualquer dúvida, fale com a loja citando o código.</p>
+      <div class="acoes"><button class="ghost" type="button" id="fecharOk">Fechar</button></div>
+    </div>
+  </div>
+</dialog>
+
+<script src="config.js" onerror="void 0"></script>
+<script>
+(function(){
+  "use strict";
+  var API = (window.GIULLIAS_API_URL || "https://giullias.pdv.uniforhub.com.br/api").replace(/\/+$/,"");
+  var catalogo = [];
+  var carrinho = {};            // sku -> qtd
+  var siteRef = null;           // idempotência do envio
+
+  var el = function(id){ return document.getElementById(id); };
+  var brl = function(cents){
+    return (cents/100).toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+  };
+
+  function carregarCatalogo(){
+    fetch(API + "/site/catalogo")
+      .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(itens){
+        catalogo = itens;
+        var grade = el("catalogo");
+        grade.innerHTML = "";
+        itens.forEach(function(p){
+          var card = document.createElement("div");
+          card.className = "card";
+          var disponivel = p.estoque > 0;
+          card.innerHTML =
+            '<span class="badge' + (disponivel ? "" : " enc") + '">' +
+              (disponivel ? "Pronta entrega" : "Sob encomenda") + "</span>" +
+            "<h3></h3>" +
+            '<span class="preco">' + brl(p.precoCents) + "</span>" +
+            '<button class="add" type="button">Adicionar</button>';
+          card.querySelector("h3").textContent = p.nome;
+          card.querySelector(".add").addEventListener("click", function(){
+            carrinho[p.sku] = (carrinho[p.sku] || 0) + 1;
+            atualizarContagem();
+          });
+          grade.appendChild(card);
+        });
+        el("estado").hidden = itens.length > 0;
+        el("estado").textContent = itens.length ? "" :
+          "O catálogo está sendo preparado. Volte em instantes ou fale com a loja.";
+        grade.hidden = itens.length === 0;
+      })
+      .catch(function(){
+        el("estado").textContent =
+          "Não foi possível carregar o catálogo agora. Atualize a página ou fale com a loja.";
+      });
+  }
+
+  function itemDoCatalogo(sku){
+    for (var i = 0; i < catalogo.length; i++) if (catalogo[i].sku === sku) return catalogo[i];
+    return null;
+  }
+
+  function atualizarContagem(){
+    var total = 0;
+    Object.keys(carrinho).forEach(function(sku){ total += carrinho[sku]; });
+    el("contagem").textContent = String(total);
+  }
+
+  function desenharCarrinho(){
+    var caixa = el("itensCarrinho");
+    caixa.innerHTML = "";
+    var totalCents = 0;
+    var skus = Object.keys(carrinho);
+    if (!skus.length){
+      caixa.innerHTML = '<p class="aviso">O carrinho está vazio. Escolha um arranjo para começar.</p>';
+    }
+    skus.forEach(function(sku){
+      var p = itemDoCatalogo(sku);
+      if (!p) { delete carrinho[sku]; return; }
+      var qtd = carrinho[sku];
+      totalCents += p.precoCents * qtd;
+      var linha = document.createElement("div");
+      linha.className = "linha";
+      linha.innerHTML =
+        "<div><div></div><small>" + brl(p.precoCents) + " cada</small></div>" +
+        '<div class="qtd">' +
+          '<button type="button" aria-label="menos">−</button><span>' + qtd + "</span>" +
+          '<button type="button" aria-label="mais">+</button></div>';
+      linha.querySelector("div > div").textContent = p.nome;
+      var botoes = linha.querySelectorAll("button");
+      botoes[0].addEventListener("click", function(){
+        carrinho[sku] = qtd - 1;
+        if (carrinho[sku] <= 0) delete carrinho[sku];
+        atualizarContagem(); desenharCarrinho();
+      });
+      botoes[1].addEventListener("click", function(){
+        if (qtd < 100) carrinho[sku] = qtd + 1;
+        atualizarContagem(); desenharCarrinho();
+      });
+      caixa.appendChild(linha);
+    });
+    el("totalCarrinho").textContent = brl(totalCents);
+  }
+
+  function dataMinima(){
+    var hoje = new Date();
+    return hoje.toISOString().slice(0,10);
+  }
+
+  el("abrirCarrinho").addEventListener("click", function(){
+    desenharCarrinho();
+    el("checkout").hidden = false;
+    el("confirmacao").hidden = true;
+    el("carrinho").showModal();
+  });
+  el("fecharCarrinho").addEventListener("click", function(){ el("carrinho").close(); });
+  el("fecharOk").addEventListener("click", function(){ el("carrinho").close(); });
+  el("tipoEntrega").addEventListener("change", function(){
+    el("campoEndereco").hidden = this.value !== "entrega";
+  });
+
+  el("checkout").addEventListener("submit", function(evento){
+    evento.preventDefault();
+    var erro = el("erro");
+    erro.textContent = "";
+    var skus = Object.keys(carrinho);
+    if (!skus.length){ erro.textContent = "Adicione pelo menos um item ao pedido."; return; }
+    var dados = new FormData(this);
+    var tipo = String(dados.get("tipo"));
+    if (tipo === "entrega" && !String(dados.get("endereco") || "").trim()){
+      erro.textContent = "Informe o endereço de entrega."; return;
+    }
+    if (!siteRef) siteRef = (crypto.randomUUID ? crypto.randomUUID() :
+      String(Date.now()) + "-" + Math.random().toString(16).slice(2));
+    var corpo = {
+      siteRef: siteRef,
+      clienteNome: String(dados.get("clienteNome")).trim(),
+      clienteTelefone: String(dados.get("clienteTelefone")).trim(),
+      clienteEmail: String(dados.get("clienteEmail") || "").trim() || null,
+      itens: skus.map(function(sku){ return {sku: sku, qtd: carrinho[sku]}; }),
+      entrega: {
+        tipo: tipo,
+        data: String(dados.get("data")),
+        janela: String(dados.get("janela")),
+        endereco: String(dados.get("endereco") || "").trim() || null,
+        destinatario: String(dados.get("destinatario") || "").trim() || null,
+        mensagemCartao: String(dados.get("mensagemCartao") || "").trim() || null
+      },
+      observacao: String(dados.get("observacao") || "").trim() || null
+    };
+    var botao = el("enviar");
+    botao.disabled = true;
+    fetch(API + "/site/pedidos", {
+      method: "POST",
+      headers: {"content-type": "application/json"},
+      body: JSON.stringify(corpo)
+    })
+      .then(function(r){
+        if (r.status === 201) return r.json();
+        return r.json().then(function(body){
+          var mensagem = (body && body.detail) || (body && body.error && body.error.message);
+          throw new Error(mensagem || "não foi possível enviar o pedido");
+        });
+      })
+      .then(function(pedido){
+        el("codigoPedido").textContent = pedido.codigo;
+        el("checkout").hidden = true;
+        el("confirmacao").hidden = false;
+        carrinho = {};
+        siteRef = null;
+        atualizarContagem();
+      })
+      .catch(function(falha){
+        erro.textContent = "Não deu certo: " + falha.message + ". Tente de novo.";
+      })
+      .finally(function(){ botao.disabled = false; });
+  });
+
+  document.querySelector('input[name="data"]').min = dataMinima();
+  el("campoEndereco").hidden = false;
+  carregarCatalogo();
+})();
+</script>
+</body>
+</html>

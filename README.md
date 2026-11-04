@@ -1,4 +1,23 @@
-# Giullia's — apresentação do novo site
+# Giullia's — site e loja online
+
+## Loja online (`loja.html`)
+
+Vitrine e checkout do varejo online, ligados ao PDV Giullias: o catálogo vem de
+`GET /site/catalogo` (produtos do Protheus com preço e saldo do PDV) e o pedido
+vai para `POST /site/pedidos`. O pagamento não acontece no site: a equipe
+confirma e envia o link de cobrança Rede pelo WhatsApp, e a nota fiscal sai na
+expedição pelo fluxo normal do PDV.
+
+Publicação: copie `config.example.js` para `config.js` com a URL da API e
+publique `loja.html`, `config.js`, `logo-giullias.png` e `favicon.svg`. A API
+precisa listar a origem do site em `GIU_SITE_ORIGINS` (CORS), senão o navegador
+bloqueia as chamadas. O envio é idempotente (`siteRef` gerado no navegador):
+reenvio por rede instável não duplica pedido. Sem JavaScript de terceiros, sem
+cookies e sem coleta além dos dados digitados no checkout.
+
+---
+
+# Apresentação do novo site (material original)
 
 Apresentação para aprovação de Diretoria e Marketing, preparada pela OSSEL. Reúne a proposta visual, uma maquete da página inicial, a estrutura planejada e os próximos passos.
 
